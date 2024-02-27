@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertor MB în GB și TB</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,300&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            caret-color: #00BFFF;
+            text-align: center;
+        }
+
+        .output {
+            text-align: center;
+            display: none;
+        }
+
+        .output p {
+            margin: 0;
+            padding: 10px;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px #00BFFF;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            background: linear-gradient(45deg, #2196F3, #E91E63);
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #E91E63, #2196F3);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Convertor MB în GB și TB</h2>
+    
+    <input type="number" id="megabytes" name="megabytes" value="0" placeholder="Introduceți valoarea în MB">
+    
+    <button onclick="convertValues()">Converteste</button>
+
+    <div class="output" id="results">
+        <p id="gigabytes">Valoare în GB: </p>
+        <p id="terabytes">Valoare în TB: </p>
+    </div>
+</div>
+
+<script>
+    function convertValues() {
+        var mb = document.getElementById("megabytes").value;
+        var gb = mb / 1024;
+        var tb = mb / 1048576;
+
+        document.getElementById("gigabytes").textContent = "Valoare în GB: " + gb.toFixed(2) + " GB";
+        document.getElementById("terabytes").textContent = "Valoare în TB: " + tb.toFixed(2) + " TB";
+        document.getElementById("results").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
